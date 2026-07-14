@@ -2,8 +2,8 @@
   --primary-color: hsl(0, 36%, 70%);
   --secondary-color: hsl(0, 93%, 68%);
   --neutral-color: hsl(0, 6%, 24%);
-  --gradient-1: linear-gradient(135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%));
-  --gradient-2: linear-gradient(135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%));
+  --gradient-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --gradient-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 }
 
 * {
@@ -12,14 +12,177 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 html {
   font-size: 62.5%;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
+  min-height: 100vh;
   font-size: 1.6rem;
+  background: hsl(0, 100%, 98%);
+}
+
+.container {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+}
+
+.container .left {
+  flex: 0 1 58%;
+  padding: 6.5rem 15rem 6.5rem 10.5rem;
+  background-image: url("images/bg-pattern-desktop.svg"), var(--gradient-1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container .left .left-upper {
+  margin-bottom: 12rem;
+}
+
+.container .left .left-upper img {
+  display: block;
+}
+
+.container .left .left-main {
+  max-width: 44.5rem;
+}
+
+.container .left .left-main .left-main--spanUpper,
+.container .left .left-main .left-main--spanMid,
+.container .left .left-main .left-main--spanLow {
+  display: block;
+  text-transform: uppercase;
+  font-size: 7rem;
+  letter-spacing: 1.7rem;
+  line-height: 1;
+}
+
+.container .left .left-main .left-main--spanUpper {
+  font-weight: 300;
+  color: var(--primary-color);
+}
+
+.container .left .left-main .left-main--spanMid,
+.container .left .left-main .left-main--spanLow {
+  font-weight: 600;
+  color: var(--neutral-color);
+}
+
+.container .left .left-main .greeting-text {
+  width: 100%;
+  margin: 2.4rem 0 4rem;
+  color: var(--primary-color);
+  line-height: 1.75;
+}
+
+.container .left .left-main--input {
+  position: relative;
+  max-width: 44.5rem;
+}
+
+.container .left .left-main--input input {
+  width: 100%;
+  padding: 1.9rem 11rem 1.9rem 3.2rem;
+  border: 1px solid hsla(0, 36%, 70%, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--neutral-color);
+  font: inherit;
+  outline: none;
+}
+
+.container .left .left-main--input input::placeholder {
+  color: var(--primary-color);
+  opacity: 0.5;
+}
+
+.container .left .left-main--input button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  min-width: 10rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--gradient-2);
+  box-shadow: 0 1.5rem 3rem hsla(0, 36%, 70%, 0.5);
+  cursor: pointer;
+}
+
+.container .left .left-main--input button img {
+  display: block;
+  margin: 0 auto;
+}
+
+.container .right {
+  flex: 0 1 42%;
+}
+
+.container .right picture,
+.container .right img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.container .right img {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: auto;
+    flex-direction: column;
+  }
+
+  .container .right {
+    order: 1;
+  }
+
+  .container .right img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .container .left {
+    order: 2;
+    padding: 3.2rem;
+    background-size: contain;
+  }
+
+  .container .left .left-upper {
+    margin-bottom: 3.2rem;
+  }
+
+  .container .left .left-upper img {
+    width: 10rem;
+  }
+
+  .container .left .left-main {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .container .left .left-main .left-main--spanUpper,
+  .container .left .left-main .left-main--spanMid,
+  .container .left .left-main .left-main--spanLow {
+    font-size: 4rem;
+    letter-spacing: 1rem;
+  }
+
+  .container .left .left-main .greeting-text {
+    margin: 1.6rem 0 3.2rem;
+    line-height: 1.6;
+  }
+
+  .container .left .left-main--input input {
+    padding: 1.5rem 8rem 1.5rem 2.4rem;
+  }
+
+  .container .left .left-main--input button {
+    min-width: 6.4rem;
+  }
 }
