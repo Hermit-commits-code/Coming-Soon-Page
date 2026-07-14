@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet">
-    <title>Document</title>
+    <script src="script.js" defer></script>
+    <title>Base Apparel Coming Soon</title>
   </head>
 
   <body>
@@ -26,8 +27,11 @@
             date with announcements and our launch deals
           </p>
           <div class="left-main--input">
-            <input type="email" id="emailInput" placeholder="Email Address">
-            <button aria-label="Submit email"><img src="images/icon-arrow.svg" alt=""></button>
+            <form class="signup-form" id="signupForm" novalidate>
+              <input id="emailInput" type="email" placeholder="Email Address" aria-describedby="emailError" required>
+              <button type="submit" aria-label="Submit email"><img src="images/icon-arrow.svg" alt=""></button>
+            </form>
+            <p class="form-error" id="emailError" aria-live="polite"></p>
           </div>
         </section>
 
